@@ -37,12 +37,78 @@ code {
 .Main div {
   display: inline-grid;
   width: 558px;
+  padding: 16px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(255, 255, 255, 0.6);
+}
+.Main input {
+  height: 48px;
+  font-size: xx-large;
+}
+.Main button {
+  position: relative;
+  left: 80%;
+  width: 231px;
+  height: 57px;
+  background: #36CE7C;
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #FFFFFF;
+}
+.error {
+  box-sizing: border-box;
+  background: #221515;
+  border: 1px solid #FF7070;
+}
+.error span {
+  position: relative;
+  top: 20px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #FF7070;
 }
 h1 {
   font-weight: 900;
   font-size: 40px;
   line-height: 60px;
 }
-.cardList {
+.list {
   grid-area: cardList;
+}
+
+.cardList {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: 590px 590px;
+  padding-left: 0px;
+}
+
+.card {
+  width: 590px;
+  height: 258px;
+  border-radius: 12px;
+}
+
+.card span {
+  position: relative;
+  top: 158px;
+  left: 20px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+}
+.card h1 {
+  position: relative;
+  top: 138px;
+  left: 20px;
+  width: 165.94px;
+  height: 48px;
+  font-weight: 900;
+  font-size: 32px;
+  line-height: 48px;
 }
