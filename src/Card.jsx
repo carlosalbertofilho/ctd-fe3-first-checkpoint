@@ -3,17 +3,21 @@
 
 export function Card (props) {
 
-  const checkColor = (color) => {
-    let resp = false
-    if (color === '#9a9996'
-      || color === '#c0bfbc'
-      || color === '#deddda'
-      || color === '#f6f5f4'
-      || color === '#ffffff') resp = true
-    return resp
+  const checkLightOrDarkColor = (color) => {
+    //Convert it to RGB: http://gist.github.com/983661
+    color = +("0x" + color.slice(1).replace(color.length < 5 && /./g, '$&$&'));
+    let r = color >> 16
+    let g = (color >> 8) & 255
+    let b = color & 255
+    let hsp = Math.sqrt(
+      0.299 * (r * r) +
+      0.587 * (g * g) +
+      0.114 * (b * b))
+        
+    return hsp > 127.5
   }
   const styleMod = (cor) => {
-    return checkColor(cor)
+    return checkLightOrDarkColor(cor)
       ? {backgroundColor: cor,
         border: "4px solid " + cor,
         color: "black" }

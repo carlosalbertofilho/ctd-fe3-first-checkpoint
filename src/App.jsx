@@ -19,21 +19,17 @@ function App() {
 
     const novaCor = {
       id: listaCores.length+1
-      , nome: nomeCor
+      , nome: GetColorName(codigoCor)
       , codigo: codigoCor
     }
 
-    if (campoInvalidos()) setError(true)
+    if ((nomeCor === '' || codigoCor === '')) setError(true)
     else {
       setError(false)
       setListaCores(listaCores => [novaCor, ...listaCores])
       setNomeCor('')
       setCodigoCor('')
     }
-  }
-
-  const campoInvalidos = () => {
-    return (nomeCor === '' || codigoCor === '')
   }
 
   return (
