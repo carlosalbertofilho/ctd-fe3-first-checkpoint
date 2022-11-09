@@ -13,38 +13,53 @@ function App() {
   const [listaCores, setListaCores] = useState([])
 
   const cadastraCor = (event) => {
-    event.preventDefault();
+    event.preventDefault()
+
     const novaCor = {
       nome: nomeCor
       , codigo: codigoCor
     }
 
-    setListaCores(novaCor, ...listaCores)
+    if (!validacaoCampos()) setError(true)
+    else {
+      setError(false)
+      setListaCores(listaCores => [novaCor, ...listaCores])
+      setNomeCor('')
+      setCodigoCor('')
+    }
+  }
 
+  const validacaoCampos = () => {
+    return true
   }
 
   return (
     <div className="App">
-     <main>
+     <main  className={error ? 'error' : 'Main'}>
       <h1>ADICIONAR NOVA COR</h1>
       <form onSubmit={event => cadastraCor(event)}>
-        <label htmlFor="nomeCor">Nome:</label>
-        <input type="text" name="nomeCor" value={nomeCor} onChange={event => setNomeCor(event.target.value)} />
-        <label htmlFor="inputCor">Cor:</label>
-        <input type="color" name="inputCor" value={codigoCor} onChange={event => setCodigoCor(event.target.value)}/>
+        <div>
+          <label htmlFor="nomeCor">Nome:</label>
+          <input type="text" name="nomeCor" value={nomeCor} 
+          onChange={event => setNomeCor(event.target.value)} />
+        </div>
+        <div>
+          <label htmlFor="inputCor">Cor:</label>
+          <input type="color" name="inputCor" value={codigoCor} 
+          onChange={event => setCodigoCor(event.target.value)}/>
+        </div>
         <button type="submit">Adicionar</button>
       </form>
+      {error && <span>Por favor, verifique os dados inseridos no formulário</span>}
      </main>
-     <section>
+     <section className="cardList">
       <h1>CORES FAVORITAS</h1>
         {
           listaCores.map(
             cor => {
-              console.log(cor)
               return(
-                <Card 
-                  corData={cor}
-                />
+                <Card nome={cor.nome}
+                      codigo={cor.codigo} />
               )
             }
           )

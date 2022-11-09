@@ -2,7 +2,7 @@
 
 export function Card (props) {
   return (
-    <div>
+    <div >
       <h1>{props.nome}</h1>
       <span>{props.codigo}</span>
     </div>

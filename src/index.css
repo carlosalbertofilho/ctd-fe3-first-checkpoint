@@ -14,3 +14,35 @@ code {
     monospace;
 }
 
+.App {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template: 
+  'Main'
+  'cardList';
+}
+
+.Main {
+  grid-area: Main;
+  background-color: #202020;
+  width: 1200px;
+  height: 309px;
+  border-radius: 12px;
+  margin-top: 84px;
+}
+.Main h1 {
+  margin: 32px 0 32px 32px;
+}
+.Main div {
+  display: inline-grid;
+  width: 558px;
+}
+h1 {
+  font-weight: 900;
+  font-size: 40px;
+  line-height: 60px;
+}
+.cardList {
+  grid-area: cardList;
+}
