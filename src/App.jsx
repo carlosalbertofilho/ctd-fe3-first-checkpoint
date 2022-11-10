@@ -61,7 +61,8 @@ function App() {
           listaCores.map(
             cor => {
               return(
-                <Card objCor={cor} />
+                <Card objCor={cor} 
+                      key={cor.id} />
               )
             }
           )

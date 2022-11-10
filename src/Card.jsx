@@ -25,7 +25,7 @@ export function Card (props) {
         border: "4px solid " + cor }
   }
   return (
-    <div className="card" key={props.objCor.id} 
+    <div className="card"  
     style={ styleMod(props.objCor.codigo) }>
       <span>{props.objCor.nome}</span>
       <h1>{props.objCor.codigo}</h1>
